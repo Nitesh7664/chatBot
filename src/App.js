@@ -18,7 +18,7 @@ function App() {
       window.document.getElementById('messageContainer').scrollTo(0, document.getElementById('messageContainer').scrollHeight)
       if(initialRender.current)
          addDefaultMessage()
-   }, [setMessages, initialRender.current])
+   }, [setMessages, initialRender.current, messages])
 
    const checkUserInput = () => {
       return answerValue.find(answer => answer == userInput)
@@ -109,7 +109,7 @@ function App() {
 
    return (
       <div className = "container">
-         <h1 className="header">Chat Bot</h1>
+         <h1 className="header">Chat <span className="bot">Bot</span> </h1>
          <div className="message-container" id="messageContainer">
             {
                messages.map((message, index) => <Message key={index} message={message.output} type={message.type} />)
